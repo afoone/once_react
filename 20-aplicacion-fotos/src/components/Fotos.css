@@ -1,0 +1,13 @@
+.fotos {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    gap: 1em;
+
+}
+
+.fotos img {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    
+}
