@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
     gap: 1em;
-
+    margin-top: 1.5em;
 }
 
 .fotos img {
