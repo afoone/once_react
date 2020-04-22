@@ -24,7 +24,7 @@ export class TablaFiltrada extends Component {
     render() {
         return (
             <div className="tabla-filtrada">
-                <Search changeSearch = {this.changeSearchPhrase} />
+                <Search auto changeSearch = {this.changeSearchPhrase} />
                 <TablaPosts filtro={this.state.searchPhrase}></TablaPosts>
             </div>
         )

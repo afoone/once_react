@@ -11,3 +11,15 @@
     align-self: center;
     
 }
+
+.fotos-mas {
+    font-size: 3em;
+    color: grey;
+    margin: 2em 0em 2em 0em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fotos-mas:hover {
+    color: blue;
+}
