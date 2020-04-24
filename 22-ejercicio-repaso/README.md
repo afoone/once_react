@@ -16,3 +16,4 @@ Posibles mejoras:
 
 - Poner un buscador de palabras
 - Guardar el chiste (los chistes se podrían guardar en un json-server, por ejemplo). Necesitaríamos una página y un Router para mostrar los chistes guardados.
+- Crear un pdf con los chistes guardados. Elemento de creación de pdf [aquí](https://react-pdf.org/)
