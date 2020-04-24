@@ -1,6 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import {BASE_API_URL} from '../config/config'
 
 const ProjectsTable = (props) => {
+
+    const onBorrarClicked = id => {
+        console.log("elemento a borrar", id)
+        axios.delete(`${BASE_API_URL}/projects/${id}/`).then(
+            res => {
+                console.log(res);
+                props.deleteElement(id);
+            }
+        ).catch(console.log)
+    }
+
     return (
         <div>
             <div>
@@ -11,6 +25,7 @@ const ProjectsTable = (props) => {
                             <th>Código de proyecto</th>
                             <th>Descripción</th>
                             <th>Cliente</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,6 +37,12 @@ const ProjectsTable = (props) => {
                                     <td>{e.code}</td>
                                     <td>{e.description}</td>
                                     <td>{e.client}</td>
+                                    <td>
+                                        <Link to={`/projects/${e.id}/view`}>
+                                            Ver
+                                            </Link> &nbsp;
+                                            <a href="/#" onClick={() => onBorrarClicked(e.id)} >Borrar</a>
+                                    </td>
                                 </tr>
                             )
                         }

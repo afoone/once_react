@@ -13,40 +13,34 @@
       "id": 2
     },
     {
-      "code": "a",
-      "description": "a",
-      "client": "a",
-      "id": 3
-    },
-    {
-      "code": "dd",
-      "description": "dd",
-      "client": "dd",
-      "id": 4
-    },
-    {
       "code": "aa",
       "description": "ddd",
       "client": "ccc",
       "id": 5
     },
     {
-      "code": "66",
-      "description": "44",
-      "client": "33",
-      "id": 6
+      "code": "aa",
+      "description": "ddd",
+      "client": "ccc",
+      "id": 99
     },
     {
-      "code": "11",
-      "description": "22",
-      "client": "33",
-      "id": 7
+      "code": "aa",
+      "description": "ddd",
+      "client": "ccc",
+      "id": 1000
     },
     {
-      "code": "PP1",
-      "description": "DES",
-      "client": "CLI",
-      "id": 8
+      "code": "aa",
+      "description": "ddd",
+      "client": "ccc",
+      "id": 349078
+    },
+    {
+      "code": "PY-R78",
+      "description": "Construcción Torre",
+      "client": "Constructora",
+      "id": 9
     }
   ],
   "clientes": []
