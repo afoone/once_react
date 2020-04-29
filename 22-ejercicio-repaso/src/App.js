@@ -1,11 +1,10 @@
 import React from 'react';
+import ChuckNorrisJokes from './components/ChuckNorrisJokes'
 
 function App() {
   return (
-    <div className="App">
-      <div className="app-header">
-        app
-      </div>
+    <div className="app">
+      <ChuckNorrisJokes/>
     </div>
   );
 }
