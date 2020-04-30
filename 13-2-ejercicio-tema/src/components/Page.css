@@ -1,15 +1,18 @@
 
 
 .dark {
-
-}
-
-.dark p {
-
+    background-color: #010101;
+    color: whitesmoke;
 
 }
 
 .light {
+    background-color: lightgoldenrodyellow;
+    color: darkblue;
+}
 
+.high-contrast {
+    background-color: white;
+    color: black;
 }
 

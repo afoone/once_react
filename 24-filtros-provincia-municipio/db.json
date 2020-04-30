@@ -1,0 +1,55 @@
+{
+
+    "provincias":[
+        {
+            "id": 1,
+            "nombre": "Castellón"
+        },
+        {
+            "id": 2,
+            "nombre": "Valencia"
+        },
+        {
+            "id": 3,
+            "nombre": "Alicante"
+        }
+    ],
+    "municipios":[
+        {
+            "id": 1,
+            "nombre": "Valencia",
+            "provincia": 2
+        },
+        {
+            "id": 2,
+            "nombre": "Gandia",
+            "provincia": 2
+        },
+        {
+            "id": 3,
+            "nombre": "Torrente",
+            "provincia": 2
+        },
+        {
+            "id": 4,
+            "nombre": "Benicassim",
+            "provincia": 1
+        },
+        {
+            "id": 5,
+            "nombre": "Burriana",
+            "provincia": 1
+        },
+        {
+            "id": 6,
+            "nombre": "Elda",
+            "provincia": 3
+        },
+        {
+            "id": 7,
+            "nombre": "Alicante",
+            "provincia": 3
+        }
+    ]
+
+}

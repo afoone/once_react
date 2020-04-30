@@ -7,7 +7,7 @@ const ProjectsTable = (props) => {
 
     const onBorrarClicked = id => {
         console.log("elemento a borrar", id)
-        axios.delete(`${BASE_API_URL}/projects/${id}/`).then(
+        axios.delete(`${BASE_API_URL}/clients/${id}/`).then(
             res => {
                 console.log(res);
                 props.deleteElement(id);
@@ -22,9 +22,7 @@ const ProjectsTable = (props) => {
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Código de proyecto</th>
                             <th>Descripción</th>
-                            <th>Cliente</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -34,14 +32,12 @@ const ProjectsTable = (props) => {
                             props.items.map(
                                 e => <tr key={`project${e.id}`}>
                                     <td>{e.id}</td>
-                                    <td>{e.code}</td>
                                     <td>{e.description}</td>
-                                    <td>{e.client}</td>
                                     <td>
-                                        <Link to={`/projects/${e.id}/view`}>
+                                        <Link to={`/clients/${e.id}/view`}>
                                             Ver
                                             </Link> &nbsp;
-                                            <Link to={`/projects/${e.id}/edit`}>
+                                            <Link to={`/clients/${e.id}/edit`}>
                                             Editar
                                             </Link> &nbsp;
                                             <a href="/#" onClick={() => onBorrarClicked(e.id)} >Borrar</a>

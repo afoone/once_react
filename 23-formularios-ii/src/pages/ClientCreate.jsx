@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import ProjectForm from '../components/ProjectForm'
+import ClientForm from '../components/ClientForm'
 import Header from '../components/Header'
 
-export class ProjectCreate extends Component {
+export class ClientCreate extends Component {
 
 
     render() {
@@ -12,15 +12,15 @@ export class ProjectCreate extends Component {
         console.log(id)
 
         return (
-            <div className="project-create">
+            <div className="client-create">
                 <Header>
                     <i aria-hidden="true" class="plus icon"></i>
-                    {id ? "Editar proyecto": "Crear Proyecto"}
+                    {id ? "Editar Cliente": "Crear Cliente"}
                 </Header>
-                <ProjectForm id={id}/>
+                <ClientForm id={id}/>
             </div>
         )
     }
 }
 
-export default ProjectCreate
+export default ClientCreate
