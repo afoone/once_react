@@ -9,15 +9,16 @@ export class Pomodoro extends Component {
         super(props);
         this.state = {
             tiempo: 1500
-
         }
     }
 
     componentDidMount() {
-        setInterval(
+        this.interval = setInterval(
             () => this.setState({tiempo: this.state.tiempo - 1}),
             1000
         )
+
+       setTimeout( () => clearInterval(this.interval) , 10000);
     }
 
     render() {
