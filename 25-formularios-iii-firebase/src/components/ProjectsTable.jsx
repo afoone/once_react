@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_API_URL } from '../config/config'
+import db from '../config/firebase'
 
 const ProjectsTable = (props) => {
 
     const onBorrarClicked = id => {
         console.log("elemento a borrar", id)
-        axios.delete(`${BASE_API_URL}/projects/${id}/`).then(
+        db.collection("projects").doc(id).delete().then (
             res => {
                 console.log(res);
                 props.deleteElement(id);

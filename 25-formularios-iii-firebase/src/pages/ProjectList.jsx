@@ -42,7 +42,7 @@ const ProjectList = () => {
 
     const deleteElement = (id) => {
         console.log("delete element")
-        const nuevosProyectos = this.state.projects.filter(
+        const nuevosProyectos = projects.filter(
             e => e.id !== id);
         setProjects(nuevosProyectos);
 

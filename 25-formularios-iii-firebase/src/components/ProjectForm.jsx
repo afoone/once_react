@@ -17,22 +17,24 @@ export class ProjectForm extends Component {
     }
 
     componentDidMount() {
-        db.collection("projects").doc(this.props.id).get().then(
-            res => {
-                if (res.exists) {
-                    const data = res.data();
-                    console.log("data", data)
-                    this.setState(
-                        {
-                            code: data.code,
-                            description: data.description,
-                            client: data.client
-                        }
-                    )
+        if (this.props.id) {
+            db.collection("projects").doc(this.props.id).get().then(
+                res => {
+                    if (res.exists) {
+                        const data = res.data();
+                        console.log("data", data)
+                        this.setState(
+                            {
+                                code: data.code,
+                                description: data.description,
+                                client: data.client
+                            }
+                        )
+                    }
+                    console.log(res.exists, res.data())
                 }
-                console.log(res.exists, res.data())
-            }
-        )
+            )
+        }
     }
 
     onClientChange = e => {
@@ -71,9 +73,9 @@ export class ProjectForm extends Component {
                 project
             ).then(
                 res =>
-                this.setState({
-                    redirect: true
-                })
+                    this.setState({
+                        redirect: true
+                    })
             )
         } else {
             db.collection("projects").add(project).then(
