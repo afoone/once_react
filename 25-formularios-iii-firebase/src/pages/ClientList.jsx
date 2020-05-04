@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ClientsTable from '../components/ClientsTable'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { BASE_API_URL } from '../config/config'
 import Header from '../components/Header'
+import db from '../config/firebase'
 
 const ClientList = () => {
 
@@ -12,10 +11,20 @@ const ClientList = () => {
     // Hook de efecto
     useEffect(
         () => {
-            axios.get(`${BASE_API_URL}/clients`).then(
-                res => setClients(res.data)
-            ).catch(
-                console.log
+            db.collection("clients").get().then(
+                res => {
+                    console.log(res)
+                    const elementos = res.docs.map(
+                        item => {
+                            const data = item.data();
+                            return {
+                                id: item.id,
+                                description: data.description,
+                            }
+                        }
+                    )
+                    setClients(elementos);
+                }
             )
         }, []
     )

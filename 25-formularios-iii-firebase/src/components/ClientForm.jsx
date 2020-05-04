@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { BASE_API_URL } from '../config/config'
-import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
+import db from '../config/firebase';
 
 export class ClientForm extends Component {
 
@@ -18,13 +17,17 @@ export class ClientForm extends Component {
         // me traigo el proyecto si tengo un id, si es undefined no hago 
         // nada
         if (this.props.id) {
-            axios.get(`${BASE_API_URL}/clients/${this.props.id}`).then(
+            db.collection("clients").doc(this.props.id).get().then(
                 res => {
-                    this.setState(
-                        {
-                            description: res.data.description,
-                        }
-                    )
+                    if (res.exists) {
+                        const data = res.data();
+                        console.log("data", data)
+                        this.setState(
+                            {
+                                description: data.description,
+                            }
+                        )
+                    }
                 }
             )
         }
@@ -45,20 +48,21 @@ export class ClientForm extends Component {
             description: this.state.description,
         }
         if (this.props.id) {
-            axios.put(`${BASE_API_URL}/clients/${this.props.id}`, 
-                client).then(
+            db.collection("clients").doc(this.props.id).set(
+                client
+            ).then(
                 res =>
                     this.setState({
                         redirect: true
                     })
-            ).catch(console.log)
+            )
         } else {
-            axios.post(`${BASE_API_URL}/clients`, client).then(
+            db.collection("clients").add(client).then(
                 res =>
                     this.setState({
                         redirect: true
                     })
-            ).catch(console.log)
+            )
         }
     }
 
@@ -68,7 +72,7 @@ export class ClientForm extends Component {
             <div className="client-form">
                 {this.state.redirect && <Redirect to="/clients" />}
                 <form className="ui form" >
-                     <div className="field">
+                    <div className="field">
                         <label>Descripción</label>
                         <input type="text" name="description"
                             value={this.state.description}
@@ -80,7 +84,7 @@ export class ClientForm extends Component {
                         <i className="icon close"></i>
                         Cancelar
                 </Link>
-                    <button className="ui primary button" 
+                    <button className="ui primary button"
                         onClick={this.onSubmitClick}
                         type="submit">
                         Enviar

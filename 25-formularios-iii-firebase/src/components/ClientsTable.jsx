@@ -1,18 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_API_URL } from '../config/config'
+import db from '../config/firebase'
 
 const ProjectsTable = (props) => {
 
     const onBorrarClicked = id => {
-        console.log("elemento a borrar", id)
-        axios.delete(`${BASE_API_URL}/clients/${id}/`).then(
-            res => {
-                console.log(res);
-                props.deleteElement(id);
-            }
+        db.collection("clients").doc(id).delete().then(
+            props.deleteElement(id)
         ).catch(console.log)
+
     }
 
     return (
@@ -30,7 +26,7 @@ const ProjectsTable = (props) => {
 
                         {
                             props.items.map(
-                                e => <tr key={`project${e.id}`}>
+                                e => <tr key={`client${e.id}`}>
                                     <td>{e.id}</td>
                                     <td>{e.description}</td>
                                     <td>
@@ -40,7 +36,7 @@ const ProjectsTable = (props) => {
                                             <Link to={`/clients/${e.id}/edit`}>
                                             Editar
                                             </Link> &nbsp;
-                                            <a href="/#" onClick={() => onBorrarClicked(e.id)} >Borrar</a>
+                                            <a href="#" onClick={() => onBorrarClicked(e.id)} >Borrar</a>
                                     </td>
                                 </tr>
                             )
