@@ -1,0 +1,10 @@
+div.ui.cards {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+}
+
+.pomodoro .ui.cards>.card>.content>.header {
+    font-size: xx-large;
+    text-align: center;
+}

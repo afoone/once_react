@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Mensaje = () => {
+const Mensaje = (props) => {
     return (
-        <div>
-            Hemos terminado!
+            <div className="meta">
+        {props.mensaje}
         </div>
     )
 }
