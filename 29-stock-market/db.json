@@ -1,0 +1,39 @@
+{
+  "tickers": [
+    {
+      "id": 1,
+      "code": "TEL",
+      "name": "Telefónica",
+      "price": 9.99,
+      "prevPrice": 8.78
+    },
+    {
+      "id": 2,
+      "code": "GAS",
+      "name": "Naturgy",
+      "price": 10.99,
+      "prevPrice": 18.78
+    },
+    {
+      "id": 3,
+      "code": "UME",
+      "name": "Umeme",
+      "price": 7.69,
+      "prevPrice": 8.15
+    },
+    {
+      "id": 4,
+      "code": "OPI",
+      "name": "Opinno",
+      "price": 7.99,
+      "prevPrice": 4.78
+    },
+    {
+      "code": "ONCE",
+      "name": "Once",
+      "price": 19.89,
+      "prevPrice": 18.78,
+      "id": 5
+    }
+  ]
+}

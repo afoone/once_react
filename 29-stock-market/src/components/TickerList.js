@@ -3,6 +3,27 @@ import Ticker from './Ticker'
 
 export class TickerList extends Component {
 
+    // Tener un array (un objeto de javascript) para llamarlo desde aquí. 
+    // array.map para mostrar todos los tickets usando el componente Ticker 
+
+    //*** hacerlo con un backend */
+    // 1. Levantar el backend; json-server --watch db.json --port 4000
+    // 2. Para recuperar los datos hay que usar axios
+    // ¿Donde usamos axios? El problema de axios es que devuelve una promesa
+    // Para tener los datos necesitamos el estado para que cuando cambie
+    // lo repinte
+    // axios solemos usarlo en el componentdidmount
+    // 1a vez: constructor --> render --> componentDidMount
+    // 2a si hay actualizaciones (this.props, this.state):
+    // render --> componentDidUpdate(prevProps, prevState)
+
+    // constructor tickers=[]
+    // render [].map => no pintamos na del map
+    // componentdidmount -> axios.get ().then...
+    //              then( this.setState({tickers: res.data}))
+    // render [todos los ticker].map( .... )
+    // componentDidUpdate ( no hay nada)
+
 
 
     constructor(props) {
@@ -10,6 +31,7 @@ export class TickerList extends Component {
         this.state = {
             tickers : []
         }
+
     }
 
 
@@ -59,6 +81,7 @@ export class TickerList extends Component {
 
         return (
             <div>
+                
                 {
                     // [
                     //     tickers.map
