@@ -6,7 +6,6 @@ import Sound from 'react-sound'
 
 export class Pomodoro extends Component {
 
-
     // 25 mt - 5md - 25mt - 5md - 25mt - 5m - 25mt - 15md
 
     configuracion = {
@@ -15,7 +14,6 @@ export class Pomodoro extends Component {
         trabajo: 1500,
         cortoPorCadaLargo: 3
     }
-
 
     constructor(props) {
         super(props);
@@ -53,7 +51,7 @@ export class Pomodoro extends Component {
                 tiempo: this.state.working ?
                     descanso.tiempo : this.configuracion.trabajo,
                 working: !this.state.working,
-                descansosCortos: !this.state.working ? descanso.descansosCortos 
+                descansosCortos: !this.state.working ? descanso.descansosCortos
                     : this.state.descansosCortos,
                 running: false,
                 mensaje: this.state.working ? "Descansando" : "Trabajando",
@@ -105,7 +103,7 @@ export class Pomodoro extends Component {
 
     handleSongFinishedPlaying = () => {
         this.setState(
-            {play: false}
+            { play: false }
         )
         console.log("finish play")
     }
@@ -115,9 +113,9 @@ export class Pomodoro extends Component {
             <div className="pomodoro" >
                 <Header></Header>
                 <Sound url="/ding.wav"
-                                        playStatus={Sound.status.PLAYING}
-                                        
-                                    ></Sound>
+                    playStatus={Sound.status.PLAYING}
+
+                ></Sound>
                 <div className="ui cards">
                     <div className="card">
                         <div className="content">
