@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "code": "PY-R23",
+      "description": "Pagina proyecto",
+      "client": "Cárnicas Pérez"
+    },
+    {
+      "code": "PY-R78",
+      "description": "Construcción Torre",
+      "client": "Constructora",
+      "id": 2
+    },
+    {
+      "code": "aa segunda parte",
+      "description": "ddd",
+      "client": "ccc",
+      "id": 5
+    },
+    {
+      "code": "NUEVO PROYECTO",
+      "description": "EL NUEVO",
+      "client": "iClient",
+      "id": 99
+    },
+    {
+      "code": "aa",
+      "description": "ddd",
+      "client": "ccc",
+      "id": 1000
+    },
+    {
+      "code": "aa",
+      "description": "ddd",
+      "client": "ccc",
+      "id": 349078
+    },
+    {
+      "code": "PY-R78",
+      "description": "Construcción Torre",
+      "client": "Constructora",
+      "id": 9
+    },
+    {
+      "code": "6666",
+      "description": "hola",
+      "client": "cliente",
+      "id": 349079
+    }
+  ],
+  "clients": [
+    {
+      "description": "nuevo 1 - 2",
+      "id": 1
+    }
+  ]
+}
