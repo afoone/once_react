@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Ticker from './Ticker'
+import axios from 'axios'
 
 export class TickerList extends Component {
 
@@ -29,7 +30,10 @@ export class TickerList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tickers : []
+            tickers: [],
+            ordenAscendente: true,
+            busqueda: "",
+            buscando: ""
         }
 
     }
@@ -39,56 +43,74 @@ export class TickerList extends Component {
     componentDidMount() {
         // irnos a por los datos
         // axios.get this.setState(tickers: res.data)
-
         // json-server 
-
         // https://github.com/typicode/json-server
-    
+
+        axios.get("http://localhost:4000/tickers").then(
+            res => {
+                this.setState(
+                    {
+                        tickers: res.data
+                    }
+                )
+            }
+        ).catch(
+            console.error
+        )
+    }
+
+    onOrdenarClicked = (e) => {
+        console.log("ordenar clicked")
+
+        const listaOrdenada = this.state.tickers.sort(
+            (a, b) => this.state.ordenAscendente ?  a.price - b.price : b.price - a.price
+        )
+
+        this.setState( 
+            {
+                tickers: listaOrdenada,
+                ordenAscendente: ! this.state.ordenAscendente
+            }
+        )
+    }
+
+    onBusquedaChange = (e) => {
+        this.setState(
+            {
+                busqueda: e.target.value
+            }
+            )
+    }
+
+    onFiltrarClicked = (e) => {
+        console.log("filtrando");
+        this.setState({
+            buscando: this.state.busqueda
+        })
     }
 
 
     render() {
-
-
-        const tickers = [
-            {
-                code: "TEL",
-                name: "Telefónica",
-                price: 9.99,
-                prevPrice: 8.78
-            },
-            {
-                code: "GAS",
-                name: "Naturgy",
-                price: 10.99,
-                prevPrice: 18.78
-            },
-            {
-                code: "UME",
-                name: "Umeme",
-                price: 7.69,
-                prevPrice: 8.15
-            },
-            {
-                code: "OPI",
-                name: "Opinno",
-                price: 7.99,
-                prevPrice: 4.78
-            },
-
-        ]
-
-
         return (
-            <div>
-                
+            <div className="ticker-list">
+                <button  onClick={this.onOrdenarClicked}>Ordenar</button>
+                <hr></hr>
+                <input type="text" value={this.state.busqueda}
+                    onChange={this.onBusquedaChange}
+                ></input>
+                <button onClick={this.onFiltrarClicked}>Filtrar</button>
+                <hr></hr>
+
                 {
-                    // [
-                    //     tickers.map
-                    // ]
-                    <Ticker valor={tickers[0]}></Ticker>
+                    this.state.tickers
+                    .filter(
+                        t => t.name.toLowerCase().includes(this.state.buscando.toLowerCase())
+                    )
+                    .map(
+                        t => <Ticker valor={t}></Ticker>
+                    )
                 }
-                
+
             </div>
         )
     }
