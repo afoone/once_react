@@ -11,30 +11,53 @@ export class ProjectForm extends Component {
             code: "",
             description: "",
             client: "",
-            redirect: false
+            redirect: false,
+            clients: []
         }
         console.log("project form id ", props.id)
     }
 
     componentDidMount() {
+
+
+        const promiseArray = [
+            db.collection("clients").get(),
+        ]
+
         if (this.props.id) {
-            db.collection("projects").doc(this.props.id).get().then(
-                res => {
-                    if (res.exists) {
-                        const data = res.data();
-                        console.log("data", data)
-                        this.setState(
-                            {
-                                code: data.code,
-                                description: data.description,
-                                client: data.client
-                            }
-                        )
-                    }
-                    console.log(res.exists, res.data())
-                }
-            )
+            promiseArray.push(
+                db.collection("projects").doc(this.props.id).get())
         }
+
+        Promise.all(promiseArray).then(
+            res => {
+
+                if (this.props.id) {
+                    this.setState({
+                        clients: res[0].docs.map(
+                            cliente => {
+                                return {
+                                    ...cliente.data(),
+                                    id: cliente.id
+                                }
+                            }),
+                        ...res[1].data()
+                    })
+
+                } else {
+                    this.setState({
+                        clients: res[0].docs.map(
+                            cliente => {
+                                return {
+                                    ...cliente.data(),
+                                    id: cliente.id
+                                }
+                            }),
+                        client: res[0].docs[0].id,
+                    })
+                }
+            }
+        )
     }
 
     onClientChange = e => {
@@ -111,10 +134,17 @@ export class ProjectForm extends Component {
                     </div>
                     <div className="field">
                         <label>Cliente</label>
-                        <input type="text" name="client"
-                            value={this.state.client}
-                            onChange={this.onClientChange}
-                            placeholder="Cliente" />
+                        <select value={this.state.client}
+                            onChange={this.onClientChange} >
+                            {
+                                this.state.clients.map(
+                                    item => <option value={item.id}>
+                                        {item.description}
+                                    </option>
+                                )
+                            }
+
+                        </select>
                     </div>
 
                     <Link to="/projects/" className="ui red button">

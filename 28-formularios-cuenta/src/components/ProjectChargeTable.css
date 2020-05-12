@@ -1,0 +1,28 @@
+.project-chart-table h1 {
+    text-align: center;
+    margin-top: 0.7em;
+    border-bottom: 2px solid black;
+}
+
+.project-chart-table .table-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+.project-chart-table  {
+    border-bottom: 2px solid black;
+}
+
+.project-chart-table .table-container h2 {
+    text-align: center;
+}
+
+.project-chart-table .table-container .left {
+    border-right: 2px solid black;
+}
+
+.project-chart-table .charge-element {
+    width: 100%;
+    padding: 0.3em 1em 0.3em 1em;
+}

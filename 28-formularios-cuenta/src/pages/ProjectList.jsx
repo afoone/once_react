@@ -13,16 +13,25 @@ const ProjectList = () => {
         () => {
             console.log("componente montado");
 
-            db.collection("projects").get().then(
+
+            Promise.all(
+                [
+                    db.collection("projects").get(),
+                    db.collection("clients").get()
+                ]
+            ).then(
                 res => {
                     console.log(res)
-                    const elementos = res.docs.map(
+                    const [proyectos, clientes] = res;
+                    const elementos = proyectos.docs.map(
                         item => {
                             const data = item.data();
                             return {
                                 id: item.id,
                                 code: data.code,
-                                client: data.client,
+                                client: clientes.docs.filter(
+                                    c => c.id === data.client
+                                )[0].data().description,
                                 description: data.description
                             }
                         }
@@ -31,12 +40,6 @@ const ProjectList = () => {
                 }
             )
 
-
-            // axios.get(`${BASE_API_URL}/projects`).then(
-            //     res => setProjects(res.data)
-            // ).catch(
-            //     console.log
-            // )
         }, []
     )
 
