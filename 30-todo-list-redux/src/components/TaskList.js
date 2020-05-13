@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Task from './Task'
 import {connect} from 'react-redux'
+import TaskForm from './TaskForm'
 
 const TaskList = props => {
 
@@ -14,6 +15,8 @@ const TaskList = props => {
     
     return (
         <div className="task-list">
+            <TaskForm></TaskForm>
+            <hr></hr>
             {props.tasks.map(
                 item=><Task task={item}/>
             )}

@@ -13,5 +13,6 @@ export const global = {
             state: "Ready"
         }
 
-    ]
+    ], 
+    notifications: []
 }

@@ -5,8 +5,8 @@ import { Provider } from 'react-redux'
 
 import { createStore } from 'redux'
 //import {global} from './tasks'
-
 import tasks from './reducers'
+
 const store = createStore(tasks)
 
 ReactDOM.render(

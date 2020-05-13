@@ -2,7 +2,7 @@ import React from 'react'
 
 const Task = props => {
     return (
-        <div className="task">
+        <div className="task" style={{border: "1px solid blue"}}>
             <div className="task-header">
                 {props.task.title}
             </div>
