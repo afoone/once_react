@@ -1,24 +1,29 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Task from './Task'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import TaskForm from './TaskForm'
+import { fetchTasks } from '../actions'
 
 const TaskList = props => {
 
+
+
+    const { dispatch } = props;
+
     useEffect(
-        () => { 
+        () => {
             console.log("did mount");
-            console.log(props);
+            dispatch(fetchTasks())
         },
-        []
+        [dispatch]
     )
-    
+
     return (
         <div className="task-list">
             <TaskForm></TaskForm>
             <hr></hr>
             {props.tasks.map(
-                item=><Task task={item}/>
+                item => <Task key={item.id} task={item} />
             )}
         </div>
     )
