@@ -1,0 +1,58 @@
+{
+  "clientes": [
+    {
+      "nombre": "Aurora",
+      "apellidos": "Morena",
+      "edad": "56",
+      "id": 1
+    },
+    {
+      "nombre": "Juan",
+      "apellidos": "Perico y Andrés",
+      "edad": "56",
+      "id": 2
+    },
+    {
+      "nombre": "s",
+      "apellidos": "s",
+      "edad": "s",
+      "id": 3
+    },
+    {
+      "nombre": "ss",
+      "apellidos": "s",
+      "edad": "s",
+      "id": 4
+    },
+    {
+      "nombre": "ss",
+      "apellidos": "",
+      "edad": "",
+      "id": 5
+    },
+    {
+      "nombre": "ss",
+      "apellidos": "",
+      "edad": "",
+      "id": 6
+    },
+    {
+      "nombre": "a",
+      "apellidos": "b",
+      "edad": "c",
+      "id": 7
+    },
+    {
+      "nombre": "a",
+      "apellidos": "a",
+      "edad": "a",
+      "id": 8
+    },
+    {
+      "nombre": "a",
+      "apellidos": "a",
+      "edad": "67",
+      "id": 9
+    }
+  ]
+}
