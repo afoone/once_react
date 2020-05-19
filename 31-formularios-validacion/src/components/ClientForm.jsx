@@ -1,23 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
-
-export const MensajeError = (props) => {
-
-    if (!props.mensaje) {
-        return null;
-    }
-
-    return (
-        <div className="ui negative message">
-            <div className="header">
-                {props.mensaje}
-            </div>
-        </div>
-    )
-}
-
-
+import MensajeError from './MensajeError';
 
 export class ClientForm extends Component {
 

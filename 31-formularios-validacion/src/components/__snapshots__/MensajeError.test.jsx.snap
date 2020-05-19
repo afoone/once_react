@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the message 1`] = `
+<div
+  className="ui negative message"
+>
+  <div
+    className="header"
+  >
+    kkk
+  </div>
+</div>
+`;
