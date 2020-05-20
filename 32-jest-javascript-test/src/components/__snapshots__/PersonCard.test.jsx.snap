@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`se pintan todos los elementos 1`] = `
+<div
+  className="person-card"
+>
+  <div
+    class="ui card"
+  >
+    <div
+      class="image"
+    >
+      <img
+        src="https://semantic-ui.com/images/avatar2/large/kristy.png"
+      />
+    </div>
+    <div
+      class="content"
+    >
+      <a
+        class="header"
+      >
+        Juanita
+      </a>
+      <div
+        class="meta"
+      >
+        <span
+          class="date"
+        >
+          Miembro desde el año 
+          2015
+        </span>
+      </div>
+      <div>
+        Hola
+      </div>
+      <div
+        class="description"
+      >
+        Soy la mejor
+      </div>
+    </div>
+    <div
+      class="extra content"
+    >
+      <a>
+        <i
+          class="user icon"
+        />
+        10
+         Amigos
+      </a>
+    </div>
+  </div>
+</div>
+`;

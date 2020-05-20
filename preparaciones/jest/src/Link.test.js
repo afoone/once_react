@@ -8,6 +8,7 @@ test('Link cambia de clase en el hover', () => {
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
+  
 
   // manually trigger the callback
   tree.props.onMouseEnter();
