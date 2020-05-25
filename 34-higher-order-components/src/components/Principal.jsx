@@ -13,9 +13,6 @@ export class Principal extends Component {
         super(props);
     }
 
-
-
-
     checkUser = (usuario) => {
         console.log(usuario)
         console.log(usuario && usuario.rol === "admin")
